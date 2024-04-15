@@ -10,7 +10,7 @@ module.exports = function (__env, argv) {
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "bundle.[contenthash:8].js",
-            clean:true
+            clean: true
         },
         target: ['web', 'es5'],
         module: {
@@ -33,8 +33,12 @@ module.exports = function (__env, argv) {
             extensions: ['.tsx', '.ts', '.jsx', '.js']
         },
         plugins: [new HtmlWebpackPlugin({
-            template: path.resolve(__dirname,"public/index.html")
+            template: path.resolve(__dirname, "public/index.html")
         })],
+        devServer: {
+            port: 3000,
+            open: true
+        }
     }
 }
 // import Product from './Product'

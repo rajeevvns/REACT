@@ -227,3 +227,20 @@ npm i html-webpack-plugin -D
 The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
 This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
 Also if we have many bundles creates we need HtmlWebpackPlugin
+
+When JSX code is written we got
+Uncaught ReferenceError: React is not defined
+
+after adding React object {}
+index.js:23 Uncaught TypeError: React.createElement is not a function
+
+When JSX is found in JavaScript ==> @babel/preset-react
+@babel/preset-react looks for createElement() of React object to convert JSX to JavaScript object
+
+For React element:
+props means:
+1) attributes <img src="" width="" />
+2) children <div><p></p></div>
+
+https://github.com/chentsulin/awesome-react-renderer
+
