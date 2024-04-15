@@ -1,4 +1,4 @@
-export default filter = (data, predicate) => {
+const filter = (data, predicate) => {
     let result = [];
     data.forEach(elem => {
         if(predicate(elem)) {
@@ -7,4 +7,6 @@ export default filter = (data, predicate) => {
     });
 
     return result;
-}
+};
+
+export default filter;

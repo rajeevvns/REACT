@@ -217,3 +217,13 @@ asset bundle.js 382 bytes [emitted] [minimized] (name: main)
 orphan modules 387 bytes [orphan] 2 modules
 ./src/index.js + 2 modules 743 bytes [built] [code generated]
 webpack 5.91.0 compiled successfully in 276 ms
+
+=========================
+
+npm i webpack-dev-server -D
+
+npm i html-webpack-plugin -D
+
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+Also if we have many bundles creates we need HtmlWebpackPlugin
