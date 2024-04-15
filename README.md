@@ -200,6 +200,20 @@ import Product from './Product.ts'; ==> ts-loader --> tsc
 
 ======================================
 
+webpack-react % npm run dev
+
+asset bundle.js 5.38 KiB [emitted] (name: main)
+runtime modules 670 bytes 3 modules
+cacheable modules 743 bytes
+  ./src/index.js 356 bytes [built] [code generated]
+  ./src/Book.js 213 bytes [built] [code generated]
+  ./src/lib.js 174 bytes [built] [code generated]
+webpack 5.91.0 compiled successfully in 272 ms
 
 
+webpack-react % npm run prod
 
+asset bundle.js 382 bytes [emitted] [minimized] (name: main)
+orphan modules 387 bytes [orphan] 2 modules
+./src/index.js + 2 modules 743 bytes [built] [code generated]
+webpack 5.91.0 compiled successfully in 276 ms

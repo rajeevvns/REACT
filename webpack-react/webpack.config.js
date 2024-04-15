@@ -10,6 +10,7 @@ module.exports = function (__env, argv) {
             path: path.resolve(__dirname, "dist"),
             filename: "bundle.js"
         },
+        // target: ['web', 'es3'],
         module: {
             rules: [
                 {
