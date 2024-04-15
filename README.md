@@ -185,3 +185,21 @@ let result = Promise.resolve(200); // ES2015+
 
 https://github.com/zloirock/core-js
 
+
+=====
+
+babel-loader loades imported "js" files and sends to "@babel/core" compiler, which uses @babel/preset-env a smart pre-preset to take care of transformation and polyfills
+
+file.js
+
+import 'logo.png'; --> file-loader
+
+import 'styles.css'; --> css-loader ==> style-loader 
+
+import Product from './Product.ts'; ==> ts-loader --> tsc
+
+======================================
+
+
+
+
