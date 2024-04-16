@@ -244,3 +244,124 @@ props means:
 
 https://github.com/chentsulin/awesome-react-renderer
 
+
+======
+
+Recap:
+
+Webpack:
+* development mode [ can debug ] and production mode [minify, uglify]
+* webpack-dev-server
+* html-webpack-plugin : adding bundles in template file [index.html]
+<script src="bundle.<<hash>>.js"> </script>
+* babel
+* @babel/preset-react 
+JSX [JavaScript and XML] --> JSON tree structure
+
+* render() --> JSON tree of JSX --> Presentation [ DOM, TV, native, proton,...]
+
+=======
+
+Target environment is ES5 engine
+```
+I have written code in latest version of JS [ES2015+ / ES6]
+
+* Syntax transform
+a) let add = (x,y) => x + y;
+transformed into
+function add(x,y) {
+    return x + y;
+}
+
+b) import Product from './Product'
+transformed to
+const Product = require('./Product');
+
+
+* new functionalites are not available in older JS engine
+
+Promise.resolve(100).then(data => console.log(data));
+
+Polyfills are required
+
+babel --> transcompiler 
+tracuer --> transcompiler [ google]
+
+need to load latest version of JS into memory [babel-loader]
+loaded file is given to transpiler [ @babel/core]
+transpiler makes use of @babel/preset-env for syntax transforms and polyfill
+```
+
+Day 2:
+
+JavaScript is dynamically typed.
+var data = "good day"; // string
+data.toUpperCase();
+..
+data = 24; // number
+
+data++
+
+...
+data = true; // boolean
+if(data) {}
+
+Typescript
+* optional type system for JavaScript
+* code quality and understandibilty
+* form of documentation
+* catch errors at compile time rather than runtime
+
+
+Simple data types:
+1) string
+let name:string = "Harry";
+
+2) number
+let age:number = 24;
+age = "Twenty Five"; // tsc catches this error
+
+3) boolean
+let valid:boolean = true;
+
+4) Union type
+
+let course:string | number = "ReactJS";
+
+course = 235; // valid
+
+5) Functions
+
+function add(a:number, b:number) : number {
+    return a + b;
+}
+
+add(4,5);
+add("Hello", "World"); // tsc complains --> throws error
+
+Note: every JS code is valid in TS
+
+6) any
+7) unknown
+unlike "any" it forces you to do typechecking before using it
+JS library:
+function makeRequest() {
+    // API call
+    return JSON if success
+    return 404 if not found
+    if error return "Problem :-(";
+}
+
+in typescript:
+let result:any = makeRequest();
+
+
+install "typescript type system and compiler"
+
+npm i -g typescript
+
+
+
+% tsc anyExample.ts  --> anyExample.js
+% node ./anyExample.js
+//TypeError: callback is not a function
