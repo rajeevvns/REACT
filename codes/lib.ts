@@ -1,5 +1,5 @@
 // HOF with Generics <T>
-function filter<T>(data: T[], predicate: (elem: T) => boolean) {
+function filter<T>(data: T[], predicate: (elem: T) => boolean): T[] {
     let result: T[] = [];
     data.forEach(elem => {
         if (predicate(elem)) {

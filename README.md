@@ -452,3 +452,19 @@ c) reduce ==> to get aggregate of data [ sum / avg/ max ...]
 d) forEach ==> traverse and perform action on each element
 
 
+```
+let add = (x, y) => x + y;
+
+let res = add(4,5); // 9
+
+OR
+
+let add = (x,y) => {
+    // code
+    return x + y;
+}
+
+```
+
+Resume @ 11:35
+
