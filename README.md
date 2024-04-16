@@ -365,3 +365,72 @@ npm i -g typescript
 % tsc anyExample.ts  --> anyExample.js
 % node ./anyExample.js
 //TypeError: callback is not a function
+
+8) type
+
+type Product = {
+    title:string,
+    price:number,
+    category?:string // optional
+}
+
+let p:Product = {"title": "iPhone", price: 98000.00}; // valid
+
+let p2:Product = {"title": "iPhone", price: 98000.00, category: 'mobile'}; // valid
+
+function addProduct(product:Product) : void {
+    // 
+}
+
+9) interface
+```
+9.1) can be used to declare shape of object like type
+interface Product {
+    title:string,
+    price:number,
+    category?:string // optional
+}
+
+difference:
+we can extend interface but not a type [ specialization]
+
+interface Tv extends Product {
+    screenType: string,
+    screenSize:string
+}
+
+
+interface Mobile extends Product {
+    camera: string
+}
+
+let m:Mobile = {"title": "iPhone", price: 98000.00, category: 'mobile', camera: '128MP'};
+
+
+9.2) can be used for Realization relationship
+
+interface Renderer {
+    render(): JSXElement ; // abstract method
+}
+
+class DOMRenderer extends Renderer {
+    // code
+    render() : JSXElement {
+        // logic
+    }
+}
+
+class TvRenderer extends Renderer {
+    // code
+      render() : JSXElement {
+        // logic
+    }   
+}
+
+let render:Renderer = new TvRenderer(); 
+...
+render = new DOMRenderer();
+```
+
+10) Type Assertions using "as" and "in";
+    Type predicates using "is"
