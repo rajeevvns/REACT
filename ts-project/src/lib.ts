@@ -9,4 +9,12 @@ export function filter<T>(data: T[], predicate: (elem: T) => boolean): T[] {
     });
     return result;
 };
-
+// input is of T type and output is of R type
+// T and R can be same or different
+export function map<T, R>(data: T[], transformFn: (elem: T) => R): R[] {
+    let result: R[] = [];
+    data.forEach(elem => {
+        result.push(transformFn(elem));
+    });
+    return result;
+}

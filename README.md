@@ -471,9 +471,9 @@ function add<E>(x:E, y: E): E {
     return x + y;
 }
 
-add(3,4); // 9 here T is number
+add(3,4); // 9 here E is number
 
-add("Hello", "React"); // HelloReact here T is string
+add("Hello", "React"); // HelloReact here E is string
 
 "ts-project"
 $ npm init --y
@@ -491,3 +491,16 @@ ts-project % node ./dist/index.js
 4
 { name: 'iPhone', price: 95000, category: 'mobile' }
 { name: 'Samsung Fold', price: 124000, category: 'mobile' }
+
+============
+
+HOF: map ==> transform 
+
+function map (elems, transformFn) {
+
+}
+
+x => x * 2
+
+
+
