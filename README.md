@@ -466,5 +466,28 @@ let add = (x,y) => {
 
 ```
 
-Resume @ 11:35
 
+function add<E>(x:E, y: E): E {
+    return x + y;
+}
+
+add(3,4); // 9 here T is number
+
+add("Hello", "React"); // HelloReact here T is string
+
+"ts-project"
+$ npm init --y
+$ npm i typescript
+$ tsc --init
+this creates tsconfig.json
+ 
+ "rootDir": "./src",  
+ "outDir": "./dist",
+
+tsc ==> compile all .ts files in "src"
+% tsc
+ts-project % node ./dist/index.js 
+6
+4
+{ name: 'iPhone', price: 95000, category: 'mobile' }
+{ name: 'Samsung Fold', price: 124000, category: 'mobile' }

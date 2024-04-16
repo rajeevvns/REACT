@@ -1,14 +1,4 @@
-// HOF with Generics <T>
-//predicate: (elem: T) => boolean [ predicate function accepts "T" type and returns boolean]
-function filter<T>(data: T[], predicate: (elem: T) => boolean): T[] {
-    let result: T[] = [];
-    data.forEach(elem => {
-        if (predicate(elem)) {
-            result.push(elem);
-        }
-    });
-    return result;
-};
+import {filter} from './lib';
 
 let nos: number[] = [7, 6, 4, 3, 1];
 
