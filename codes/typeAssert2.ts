@@ -8,12 +8,12 @@ interface ErrorMsg {
 
 // type predicate functions [is]
 function isBook(data: Book | ErrorMsg): data is Book {
-    return typeof (data as Book).getTitle === 'function';
+    return typeof (data as Book).getTitle === 'function'; // true and typecast argument
 }
 
 // not a type predicate function
 function isErrorMsg(data: Book | ErrorMsg): boolean {
-    return typeof (data as ErrorMsg).getMsg === 'function';
+    return typeof (data as ErrorMsg).getMsg === 'function'; // true but not typescasting
 }
 
 function printCleanData(data: Book | ErrorMsg) {

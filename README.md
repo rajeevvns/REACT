@@ -434,3 +434,21 @@ render = new DOMRenderer();
 
 10) Type Assertions using "as" and "in";
     Type predicates using "is"
+
+11) class type
+===========================
+
+HOF: High Order Functions
+1) functions which can accept function as arguments
+2) function which can return a function
+
+https://rxmarbles.com/
+
+--> main goal: Code re-usability
+Commonly used HOF are:
+a) filter ==> to get a subset of collection based on predicate
+b) map ==> transform data
+c) reduce ==> to get aggregate of data [ sum / avg/ max ...]
+d) forEach ==> traverse and perform action on each element
+
+
