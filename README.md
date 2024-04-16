@@ -502,5 +502,120 @@ function map (elems, transformFn) {
 
 x => x * 2
 
+==========================
 
+JavaScript in TypeScript
+
+* most of the libraries available are in JavaScript like React, jQuery, ...
+https://www.npmjs.com/
+
+install JS library
+npm i underscore
+
+import {random} from 'underscore'; // Could not find a declaration file for module 'underscore'. 
+
+console.log(random(1, 1000)); 
+
+Solution 1:
+declare type definitions
+
+typings.d.ts ==> type definition file
+```
+declare module 'underscore' {
+    export function random(min: number, max: number): number
+}
+```
+
+Solution 2:
+Definitely Typed
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i @types/underscore
+
+For Example to use React in TS:
+npm i @types/react
+
+to use jQuery in TS:
+npm i @types/jquery
+
+.npmrc
+adobe repository
+
+npm i 
+===================
+
+Decorators : Metadata for class members [@decoratorName]
+one way of code re-usability instead of specialization pattern
+
+specialization pattern: [used by React]
+```
+class Component {
+    // members
+}
+
+// inherits all from Component, maybe i need 10% of base class members
+class ProductComponent extends Component {
+
+}
+
+Decorator pattern: [used by Angular]
+
+@Component({
+    template: `<div> <h1></h1></div>`
+    selector: 'app-product'
+})
+class ProductComponent {
+    // members 
+}
+
+@Component({
+    template: `<div> <h1></h1></div>`
+    selector: 'app-book'
+})
+class BookComponent {
+
+}
+Now ProductComponent also contains "template" and "selector"
+
+<app-product></app-product>
+
+
+1) Class level Decorator:
+function classDecorator(constructor:Function) {}
+Example: 
+function Component(constructor:Function) {}
+
+2) Property decorator:
+function propertyDecorator(target: any, propertyKey:string) {}
+function Min(target:any, propertyKey:string) { // logic }
+
+class Person {
+    @Min(18)
+    age:number;
+}
+
+class Product {
+    @Min(0)
+    price:number;
+}
+let p: Person = new Person(); // target is "p"
+// age is a propertyKey;
+
+
+3) Method decorators:
+function methodDecorator(target: any, methodName:string, descriptor?:PropertyDescriptor) {}
+
+using "PropertyDescriptor" i can access the actual definition of the method
+
+class Person {
+
+    @Alert("Do you want to delete!!!?")
+    deletePerson(id: number) : void {
+
+    }
+}
+```
+
+To use Decorators in "tsconfig.json"
+"experimentalDecorators": true,  
 

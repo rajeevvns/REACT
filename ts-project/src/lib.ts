@@ -18,3 +18,4 @@ export function map<T, R>(data: T[], transformFn: (elem: T) => R): R[] {
     });
     return result;
 }
+

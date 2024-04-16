@@ -1,5 +1,11 @@
 import { filter, map } from './lib';
 
+import {random} from 'underscore';
+
+import MathUtil from './MathUtil';
+console.log(random(1, 1000));
+
+
 let nos: number[] = [7, 6, 4, 3, 1];
 
 let res: number[] = filter(nos, (no) => no % 2 === 0); // nos is of number[] and T will be number
@@ -32,6 +38,7 @@ mobiles.forEach(m => console.log(m));
 console.log("*********** map ***********");
 
 let output: number[] = map(nos, no => no * 2);
+
 output.forEach(no => console.log(no));
 
 function toCard(p: Product) {
@@ -43,6 +50,8 @@ function toCard(p: Product) {
     `
 }
 let cards: string[] = map(products, toCard);
+
+
 // let cards: string[] = map(products, p => `
 //         <div className='card'>
 //         <h1>${p.name}</h1>
@@ -56,3 +65,14 @@ console.log("*****");
 
 let names: string[] = map(products, p => p.name);
 names.forEach(name => console.log(name));
+
+console.log("Decorators example ~~~");
+
+let util:MathUtil = new MathUtil();
+console.time("first");
+    console.log(util.fibanocci(34));
+console.timeEnd("first"); //first: 54.638ms
+
+console.time("second");
+    console.log(util.fibanocci(34)); // should have cached this and return from cache
+console.timeEnd("second"); //second: 52.876ms
