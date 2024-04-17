@@ -660,3 +660,72 @@ setPrice.apply(book, [2300]); // use apply if we need to pass array of arguments
 ====================
 
 Object.defineProperty() is used to dynamically add fields, method, property to an object 
+
+==================
+
+React 
+* react ==> React.createElement() ==> JSX to JSON Object Tree
+* react-dom ==> renderer to covert " JSON Object Tree" to presentation for DOM
+
+Hello World react application:
+npx create-react-app samplereact
+
+npx --> executable node package
+
+"create-react-app" creates a scaffolding code internally using "webpack", installs all depdencencies
+and creates a starting react component.
+
+ "start": "react-scripts start",  is same as
+ "start": "webpack serve --mode development"
+
+ =================
+
+ React 18 onwards uses asynchrouns rendering and is based on Fiber Architecture.
+ Upto React 17 it was Stack based.
+
+ https://claudiopro.github.io/react-fiber-vs-stack-demo/
+
+/samplereact/node_modules/react-dom/cjs/react-dom.development.js
+
+
+26547:
+function performUnitOfWork(unitOfWork) {
+
+21516:
+function beginWork(current, workInProgress, renderLanes) {
+
+22064:
+function completeWork(current, workInProgress, renderLanes) {
+
+
+=======
+
+1) a functional component is one which returns JSX
+2) class component is one which is inherited from Component and overrides render() method which should return JSX
+3) Core API:  React.createElement() --> JSX to JSON tree
+
+Prefer always functional components --> light weight compared to Class component
+
+===============
+
+upto React 16 class component was essential for "state" , "life  cycle methods" , "error boundaries".
+
+==========
+
+React SPA application with:
+a) react-router-dom
+b) react context
+c) make api calls using axios library
+d) react hooks instead of class components
+
+Steps:
+1) npx create-react-app productapp
+
+
+2) productapp> npm i axios react-router-dom
+
+using axios make api call to
+https://fakestoreapi.com/products
+https://fakestoreapi.com/products?limit=5
+
+
