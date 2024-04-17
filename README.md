@@ -713,7 +713,7 @@ upto React 16 class component was essential for "state" , "life  cycle methods" 
 ==========
 
 React SPA application with:
-a) react-router-dom
+a) react-router-dom [60%]
 b) react context
 c) make api calls using axios library
 d) react hooks instead of class components
@@ -791,3 +791,47 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 href="#home" ==> server side routing
 use Link and "to" for client side routing
 
+JSON to TS : extension for VSCode
+
+copy JSON into clipboard
+
+VSCODE: View --> Command Pallete -=> JSON to TS
+
+Object contains "state" and "behaviour"
+React Hook:
+useState() is used to declare a "state variable" in functional component
+
+
+class Component:
+```
+public class ProductList extends Component {
+    state = {
+        products: []
+    }
+
+    constructor() {
+        // default initialize minus API call
+    }
+
+    componentDidMount() {
+         axios.get("https://fakestoreapi.com/products?limit=5").then(response => {
+            this.setState({
+                products: response.data
+            })
+        });
+    }
+
+    render() {
+
+    }
+}
+```
+placing API call in constructor() leads to FCP issue [core web vitals]
+constructor() ==> render() ==> componentDidMount()
+
+componentDidMount() updates state ==> render()
+
+
+
+Response Web Design using Bootstrap:
+bootstrap uses 12 grid system
