@@ -4,12 +4,16 @@ import Product from '../model/Product';
 import ProductCard from './ProductCard';
 
 export default function ProductList() {
-    const [products, setProducts] = useState<Product[]>();
+    // products --> state
+    // mutate only use setProducts function
+    let [products, setProducts] = useState<Product[]>();
 
     // called as soon as component is rendered --> componentDidMount() life cycle
     useEffect(() => {
         axios.get("https://fakestoreapi.com/products?limit=5").then(response => {
             setProducts(response.data);
+            //    products = response.data; // state is change but no reconcillation
+            //    console.log(products);
         });
     }, []);
 

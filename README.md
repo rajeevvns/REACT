@@ -835,3 +835,20 @@ componentDidMount() updates state ==> render()
 
 Response Web Design using Bootstrap:
 bootstrap uses 12 grid system
+
+========================
+
+React Hooks:
+1) useState
+2) useEffect
+
+to be covered:
+3) useReducer
+4) useContext
+5) useParams
+
+React Context for state management: anti-pattern
+
+
+
+

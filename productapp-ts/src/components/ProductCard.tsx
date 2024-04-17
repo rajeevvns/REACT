@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
+
 type AppProps = {
     product: Product
 }
@@ -11,7 +12,7 @@ type AppProps = {
 export default function ProductCard(props: AppProps) {
     let { id, title, image, description, price } = props.product;
     return (
-        <div className='col-md-6 col-lg-4'>
+        <div className='card col-md-6 col-lg-4'>
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={image} />
                 <Card.Body>
