@@ -729,3 +729,65 @@ https://fakestoreapi.com/products
 https://fakestoreapi.com/products?limit=5
 
 
+
+
+Components:
+1) NavbarComponent
+2) ProductList
+3) ProductCard
+4) CartComponent
+5) CartList
+6) Details
+7) ProductForm
+8) Default [in case of Wrong URL]
+
+
+React is Component based approach:
+https://react.dev/learn/thinking-in-react
+
+1) Atoms: basic building blocks of matter, sucha s button. input, label. Not useful on their own
+for Atoms we will use pre-defined libraries
+
+2) Molecules: Grouping of atoms ==> ProductCard
+
+3) Organisms:
+Combining molecules --> Navbar, ProductList
+
+4) Templates
+
+5) Pages
+
+===
+
+productapp> npm i bootstrap react-bootstrap @fortawesome/react-fontawesome  @fortawesome/free-solid-svg-icons
+
+bootstrap is a CSS library
+react-bootstrap: react components for bootstrap
+
+npx create-react-app productapp-ts --template typescript
+
+cd productapp-ts
+productapp-ts> npm i bootstrap react-bootstrap @fortawesome/react-fontawesome  @fortawesome/free-solid-svg-icons axios react-router-dom @types/axios
+
+====================
+
+
+*.js or *.ts ==> helper code
+
+*.jsx or *.tsx --> Component
+
+http://localhost:3000/dfgdfg ==> default
+http://localhost:3000/details/1 ==> Details
+http://localhost:3000/new_product
+http://localhost:3000/cart
+http://localhost:3000/products
+http://localhost:3000/
+
+https://react-bootstrap.netlify.app/docs/components/navbar
+
+include in index.tsx
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+href="#home" ==> server side routing
+use Link and "to" for client side routing
+
