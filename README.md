@@ -619,3 +619,44 @@ class Person {
 To use Decorators in "tsconfig.json"
 "experimentalDecorators": true,  
 
+=======
+
+Day 3
+
+Recap:
+1) Typescript
+* string, number, boolean, any, unknown, type, interface, union, class
+* is, as, in operator for type assertions and type predicates
+* Using JS in TypeScript [typings.d.ts or use Definietly Typed @types/library]
+@types/react @types/node @types/jquery
+* Decorators are simple functions appled using @
+1) class decorator
+2) method decorator 
+3) property decorator
+4) parameter decorator
+
+Understanding call and apply:
+
+function setPrice(p) {
+    this.price = p; //this refers to "product" or "book" based on how you call
+}
+
+let product = {
+    "title" : "iPhone",
+    "price" : 98000.00
+}
+
+let book = {
+    "name" : "React",
+    price : 4500.00
+}
+
+setPrice.call(product, 89000.00);
+
+setPrice.call(book, 2300);
+
+setPrice.apply(book, [2300]); // use apply if we need to pass array of arguments
+
+====================
+
+Object.defineProperty() is used to dynamically add fields, method, property to an object 

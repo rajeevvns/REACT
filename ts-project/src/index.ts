@@ -1,6 +1,8 @@
 import { filter, map } from './lib';
 
-import {random} from 'underscore';
+import { random } from 'underscore';
+
+import Person from './Person';
 
 import MathUtil from './MathUtil';
 console.log(random(1, 1000));
@@ -68,11 +70,23 @@ names.forEach(name => console.log(name));
 
 console.log("Decorators example ~~~");
 
-let util:MathUtil = new MathUtil();
+let util: MathUtil = new MathUtil();
 console.time("first");
-    console.log(util.fibanocci(34));
+console.log(util.fibanocci(34));
 console.timeEnd("first"); //first: 54.638ms
 
 console.time("second");
-    console.log(util.fibanocci(34)); // should have cached this and return from cache
+console.log(util.fibanocci(34)); // should have cached this and return from cache
 console.timeEnd("second"); //second: 52.876ms
+
+console.log("Propery Decorator....");
+
+let p: Person = new Person("George", 12);
+
+// @ts-ignore
+if (p["error"]) {
+    // @ts-ignore
+    console.log(p["error"]);
+} else {
+    console.log(p.name, p.age);
+}
