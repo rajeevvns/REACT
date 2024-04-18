@@ -3,6 +3,7 @@ import Cart from "../model/Cart";
 import Product from "../model/Product";
 import CartReducer from "../reducers/CartReducer";
 
+import { useNavigate } from "react-router-dom";
 type ContextType = {
     products: Cart[],
     total: number,
@@ -33,9 +34,9 @@ type AppProps = {
 }
 export default function CartProvider(props: AppProps) {
     let [state, dispatch] = useReducer(CartReducer, initialState);
-
+    let navigate = useNavigate();
     function addToCart(product: Product) {
-        dispatch({ type: 'ADD_TO_CART', payload: product });
+        dispatch({ type: 'ADD_TO_CART', payload: product }); // to CartReducer
     }
 
     function increment(id: number) {
@@ -44,8 +45,8 @@ export default function CartProvider(props: AppProps) {
 
     function checkout() {
         // code to write server
-
         dispatch({ type: 'CLEAR_CART' });
+        navigate("/");
     }
 
     return <CartContext.Provider value={{

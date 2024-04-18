@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Cart from '../model/Cart'
 import { Button } from 'react-bootstrap';
+import { CartContext } from '../context/CartContext';
 
 type AppProps = {
   product: Cart
 }
 export default function CartList(props: AppProps) {
+  let {increment} = useContext(CartContext);
   let { id, image, title, price, amount, quantity } = props.product;
   return (
     <div className='row'>
@@ -18,7 +20,7 @@ export default function CartList(props: AppProps) {
       <div className='col-md-4'>
         <Button> - </Button>
         {quantity}
-        <Button> + </Button>
+        <Button onClick={() => increment(id)}> + </Button>
       </div>
 
       <div className='col-md-2'>

@@ -8,7 +8,7 @@ export default function CartComponent() {
   return (
     <Container>
       {
-        products.map(product => <CartList product={product} />)
+        products.map(product => <CartList product={product} key={product.id}/>)
       }
 
       <div className='row'>

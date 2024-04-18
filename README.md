@@ -968,3 +968,8 @@ CartComponent.tsx ==> useContext to consume total, products added to cart, check
 CartList.tsx ==> list 
 
 ===========
+
+Reconcillation
+https://legacy.reactjs.org/docs/reconciliation.html
+
+=======
