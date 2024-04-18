@@ -28,7 +28,10 @@ const initialState = {
     count: 0
 }
 
-export default function CartProvider() {
+type AppProps = {
+    children: React.ReactNode
+}
+export default function CartProvider(props: AppProps) {
     let [state, dispatch] = useReducer(CartReducer, initialState);
 
     function addToCart(product: Product) {
@@ -41,6 +44,7 @@ export default function CartProvider() {
 
     function checkout() {
         // code to write server
+
         dispatch({ type: 'CLEAR_CART' });
     }
 
@@ -52,6 +56,7 @@ export default function CartProvider() {
         increment,
         checkout
     }}>
-
+        {props.children}
     </CartContext.Provider>
 }
+

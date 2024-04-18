@@ -958,6 +958,6 @@ Context provides a way to pass data through the component tree without having to
 
 Provider
 
-Consumer
+Consumer can be any component which is a child to Provider
 
-Resume @ 11:30
+
