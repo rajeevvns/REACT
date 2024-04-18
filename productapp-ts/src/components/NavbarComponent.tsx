@@ -12,7 +12,7 @@ export default function NavbarComponent() {
                 <Nav className="me-auto">
                     <Nav.Link as={Link} to="/products">Products</Nav.Link>
                     <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                    <Nav.Link as={Link} to="/new_products">New Product</Nav.Link>
+                    <Nav.Link as={Link} to="/new_product">New Product</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

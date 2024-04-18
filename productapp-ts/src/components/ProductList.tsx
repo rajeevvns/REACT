@@ -8,6 +8,7 @@ export default function ProductList() {
     // mutate only use setProducts function
     let [products, setProducts] = useState<Product[]>();
 
+    // FCP
     // called as soon as component is rendered --> componentDidMount() life cycle
     useEffect(() => {
         axios.get("https://fakestoreapi.com/products?limit=5").then(response => {

@@ -849,6 +849,31 @@ to be covered:
 
 React Context for state management: anti-pattern
 
+=========
+
+Day 4
+
+useEffect:
+```
+1) componentDidMount() called only once after first render()
+useEffect(() => {
+
+},[])
+
+2) componentDidUpdate() gets called each time "name" state changes
+useEffect(() => {
+    // code
+}, [name]);
 
 
+3) componentDidUpdate() gets called each time any state changes
+useEffect(() => {
 
+});
+```
+
+Lazy loading of bundles.
+If all components are loaded as single bundle --> FCP issue
+<script src=".../bundle.js"></script>
+const CartComponent = lazy(() => import ('./components/CartComponent'));
+const ProductForm =  lazy(() => import ( './components/ProductForm'));
