@@ -21,7 +21,7 @@ export default function CartReducer(state: CartStateType, action: Action) {
     switch (action.type) {
         case 'ADD_TO_CART':
             const item: Cart = {
-                ...action.payload, // product passed from view
+                ...action.payload,
                 quantity: 1,
                 amount: action.payload.price
             }; // copy of payload
