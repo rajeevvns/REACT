@@ -7,10 +7,8 @@ import Details from './components/Details';
 import Default from './components/Default';
 import NavbarComponent from './components/NavbarComponent';
 
-
 const CartComponent = lazy(() => import('./components/CartComponent'));
 const ProductForm = lazy(() => import('./components/ProductForm'));
-
 
 function App() {
   return (

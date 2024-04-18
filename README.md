@@ -877,3 +877,76 @@ If all components are loaded as single bundle --> FCP issue
 <script src=".../bundle.js"></script>
 const CartComponent = lazy(() => import ('./components/CartComponent'));
 const ProductForm =  lazy(() => import ( './components/ProductForm'));
+
+================
+
+useReducer() hook
+use this hook instead of useState() if:
+a) conditionally mutate the state
+b) mutation depends on previous state
+
+Reducer function is one which takes state and action => returns a new state
+
+Action is an object of format
+{
+    type: 'TYPE_OF_ACTION',
+    payload: data [optional]
+}
+
+Examples for Counter:
+{
+    type: 'INCREMENT',
+    payload: 10
+}
+
+{
+    type :'DECREMENT',
+    payload: 1
+}
+
+{
+    type: 'CLEAR'
+}
+```
+    function Counter(state, action) {
+        switch(action.type) {
+            case 'INCREMENT':
+                return {
+                    count: state.count + action.payload
+                }
+            case 'DECREMENT':
+                return {
+                    count: state.count - action.payload
+                }
+            case 'CLEAR':
+                return {
+                    count : 0
+                }
+        }
+    }
+
+const initialState = {
+    count: 0
+}
+let [state, dispatch] = useReducer(Counter, initialState);
+
+dispatch({type:'INCREMENT' : payload: 10});
+
+dispatch({type:'DECREMENT' : payload: 2});
+
+
+<div>
+Count: {state.count}
+</div>
+
+```
+
+SOLID design principle
+S --> Single Resposibility
+
+1) Actions required are 
+a) ADD_TO_CART
+b) REMOVE_FROM_CART
+b) INCREMENT
+c) DECREMENT
+d) CLEAR_CART
