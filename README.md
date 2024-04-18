@@ -973,3 +973,47 @@ Reconcillation
 https://legacy.reactjs.org/docs/reconciliation.html
 
 =======
+
+Forms:
+1) Controlled Components 
+React holds the state
+2) Uncontrolled Components
+Underlying component holds the state [example : DOM element]
+
+Controlled Components:
+```
+    export default function ProductForm() {
+        let [name, setName] = useState("");
+        let [price, setPrice] = useState(0);
+
+        function doSubmit() {
+
+        }
+        return <div>
+            title: <input type="text" onChange={ (evt) => setName(evt.target.value)}/> <br />
+            price <input type="number" onChange={ (evt) => setName(evt.target.value)}/> <br /> 
+            <button onClick={() => doSubmit()}>Submit</button>
+        </div>
+    } 
+```
+
+UnControlled Components:
+```
+    export default function ProductForm() {
+        let nameRef = useRef(); // reference
+        let priceRef = useRef();
+
+        function doSubmit() {
+            let product = {
+                name: nameRef.current.value,
+                price: priceRef.current.value
+            }
+            // product to server
+        }
+        return <div>
+            title: <input type="text" ref={nameRef}/> <br />
+            price <input type="number" ref={priceRef}/> <br /> 
+            <button onClick={() => doSubmit()}>Submit</button>
+        </div>
+    } 
+```
