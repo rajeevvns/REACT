@@ -11,7 +11,8 @@ export default function ProductList() {
     // FCP
     // called as soon as component is rendered --> componentDidMount() life cycle
     useEffect(() => {
-        axios.get("https://fakestoreapi.com/products?limit=5").then(response => {
+        // axios.get("https://fakestoreapi.com/products?limit=5").then(response => {
+        axios.get("http://localhost:1234/products").then(response => {
             setProducts(response.data);
             //    products = response.data; // state is change but no reconcillation
             //    console.log(products);
@@ -22,7 +23,7 @@ export default function ProductList() {
     return (
         <div className='row'>
             {
-                products?.map(p => <ProductCard product={p} key={p.id}/>)
+                products?.map(p => <ProductCard product={p} key={p.id} />)
             }
         </div>
     )

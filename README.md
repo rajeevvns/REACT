@@ -1017,3 +1017,26 @@ UnControlled Components:
         </div>
     } 
 ```
+
+json-server can be used to fake RESTapi endpoints ==> CRUD
+
+npx json-server --watch data.json --port 1234
+
+Using "Adobe Spectrum"
+
+npm i @adobe/react-spectrum
+
+https://react-spectrum.adobe.com/react-spectrum/TextField.html
+
+https://opensource.adobe.com/spectrum-web-components/
+
+https://opensource.adobe.com/spectrum-web-components/using-swc-react/
+
+npm install --save @swc-react/card
+
+https://opensource.adobe.com/spectrum-web-components/components/card/
+
+=========
+
+Predicatable State Management using Redux and Mobx
+

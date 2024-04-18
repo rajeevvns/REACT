@@ -8,7 +8,8 @@ export default function Details() {
   let [product, setProduct] = useState<Product>();
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products/" + id).then(response => {
+    // axios.get("https://fakestoreapi.com/products/" + id).then(response => {
+    axios.get("http://localhost:1234/products/" + id).then(response => {
       setProduct(response.data);
     });
   })
