@@ -961,3 +961,10 @@ Provider
 Consumer can be any component which is a child to Provider
 
 
+Files:
+index.tsx
+ProductCard.tsx ==> useContext and addToCart
+CartComponent.tsx ==> useContext to consume total, products added to cart, checkout
+CartList.tsx ==> list 
+
+===========
