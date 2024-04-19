@@ -1,10 +1,30 @@
 import { connect } from 'react-redux';
 import './App.css';
+import { useState } from 'react';
 
 function App(props) {
+  let [name, setName] = useState();
+  let [email, setEmail] = useState();
+  function addNewContact() {
+    props.addContact({
+      name,
+      email
+    })
+  }
   return (
     <div className="App">
       User: {props.customer.name} <br />
+      Name : <input type='text' onChange={(evt) => setName(evt.target.value)} /> <br />
+      Email : <input type='text' onChange={(evt) => setEmail(evt.target.value)} /> <br />
+      <button type='button' onClick={addNewContact}>Add Contact</button>
+      {
+        props.friends.map(contact => (
+          <div key="contact.email">
+              {contact.email} , {contact.name}
+              <button type='button' onClick={() => props.removeContact(contact.email)}>Delete</button>
+          </div>
+        ))
+      }
     </div>
   );
 }

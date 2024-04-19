@@ -1180,4 +1180,8 @@ contactmanager> npm i redux react-redux
 
 Check Redux Devtools extension
 
-Resume @ 11:35
+Redux : single store
+Flux: multiple store and Store contained entire logic of mutation + event emitter
+* we need to create a store class
+
+
