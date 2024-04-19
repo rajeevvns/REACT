@@ -1038,5 +1038,142 @@ https://opensource.adobe.com/spectrum-web-components/components/card/
 
 =========
 
-Predicatable State Management using Redux and Mobx
+
+
+==========
+
+Recap:
+JSX to JSON Object Tree --> VDOM
+1) React.createElement() 
+2) functional components [99%] from React 16.8 version onwards
+React 16.8 version introduced Hooks:
+Hooks are used to acheive what class components provide in functional components
+2.1) state
+useState() and useReducer() 
+useReducer uses Reducer function: [ (state, action) => new state]
+dispatch(action) to reducer function; internally previous state is passed to reducer function;
+returned value from reducer function is used to update the state
+2.3) life-cycle methods
+ a) componentDidMount() called only once after first render()
+    useEffect(() => {
+        // logic like API calls
+    },[]);
+
+b) componentDidUpdate() called every time state or props change
+useEffect(() => {
+
+});
+
+or
+
+useEffect(() => {
+    // gets called if name or age changes
+    // dependent API call
+
+}, [name, age]);
+
+3) class Components
+
+
+VDOM to Presentation like DOM ==> render()
+* react-dom
+* react-native
+* react-tv
+
+
+props ==> data passed from parent to child
+
+Whenever state or props change ==> Reconcillation [ compare VDOM with VDOM_Copy, compute diff algorithm ==> update the DOM]
+* prefer using "key" for children collection
+
+---
+react-router-dom: 
+lazy, Suspense
+
+Context: state management [ anti-pattern]
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+was meant to avoid props drill
+Provider, Consumer [useContext()]
+
+React Hooks:
+1) useState
+2) useReducer
+3) useContext
+4) useParams
+5) useEffect
+
+json-server --> fake RESTApi
+
+=========================
+
+Day 5:
+
+Predicatable State Management using Redux
+
+Prefer Redux instead of Context for Statemanagement:
+1) large application
+State management code can be devlopmed by a team, who need not know about
+View components
+ Redux for statemanagement; I can use it along with
+ a) React
+ b) Angular
+ c) any other view frameworks or libraries
+ d) even in server side application
+
+2) time-travel debugging
+3) re-usability
+4) Micro-frontend
+
+Redux is based Flux Pattern [ uni-directional flow] instead of MVC Pattern
+React Story:
+https://www.youtube.com/watch?v=8pDqJVdNa44
+
+
+Redux Characters:
+1) Store: where state resides 
+{
+    user: {
+        "avatar": "banu.png",
+        name: "BanuPrakash
+    },
+    cart: {
+        products: [],
+        count: 10
+    }
+}
+
+2) Reducers
+3) RootReducer
+
+4) react-redux
+```
+connect(
+    mapStateToProps,
+    mapDispatchToProps
+) (App)
+
+// state is from Redux Store
+function mapStateToProps(state) {
+    return {
+        username: state => state.user.name,
+        items: state => state.cart.products
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addCart: p => dispatch({type: 'ADD_CART', payload: p}),
+        clear: () => dispatch({type: 'CLEAR_CART'})
+    }
+}
+
+<button onClick ={() => props.addCart(p)}> Add </button>
+
+
+```
+
+npx create-react-app contactmanager
+
+contactmanager> npm i redux react-redux
 
