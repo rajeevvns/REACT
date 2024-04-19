@@ -1257,3 +1257,23 @@ ProductCard.tsx
 
 Task:
 complete the increment, checkout, ....
+
+```
+function App() {
+   let {products} =  useSelector(state => state.cart);
+
+   return <div>
+        <ProductList products={products} />
+   </div>
+}
+
+
+class ProductList extends Component {
+    render() {
+        this.props.products.map (...)
+    }
+}
+```
+
+Async Redux, Mobx, ...
+
