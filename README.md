@@ -1250,4 +1250,10 @@ useSelector() : The selector is approximately equivalent to the mapStateToProps 
 
 npx json-server --watch data.json --port 1234
 
+files:
+redux folder [ 3 files]
+index.tsx
+ProductCard.tsx
 
+Task:
+complete the increment, checkout, ....
