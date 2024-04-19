@@ -9,7 +9,7 @@ function App(props) {
     props.addContact({
       name,
       email
-    })
+    });
   }
   return (
     <div className="App">
@@ -29,6 +29,7 @@ function App(props) {
   );
 }
 
+// HOC injects props to "App"
 export default connect(
   mapStateToProps,
   mapDispatchToProps

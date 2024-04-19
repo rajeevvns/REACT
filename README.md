@@ -1184,4 +1184,22 @@ Redux : single store
 Flux: multiple store and Store contained entire logic of mutation + event emitter
 * we need to create a store class
 
+=========
 
+Redux Toolkit (RTK):
+new way of using Redux 
+* no need to write immutable logic
+* Devtools are configured out of Box
+* writing reducers became easy
+* can use useSelector() and useDispatch() instead of connect(mapStateToProps, mapDispatchToProps)
+
+==========
+
+Covert productapp-ts to use RTK instead of Context
+
+* delete Context folder
+* remove reference in index.tsx, CartList.tsx, CartComponent.tsx, ProductCard.tsx, NAvbarComponent.tsx
+
+use "@reduxjs/toolkit" instead of "redux"
+
+npm i @reduxjs/toolkit react-redux
