@@ -1203,3 +1203,51 @@ Covert productapp-ts to use RTK instead of Context
 use "@reduxjs/toolkit" instead of "redux"
 
 npm i @reduxjs/toolkit react-redux
+
+Slice:
+```
+
+const initialState = { value: 0 } satisfies CounterState as CounterState
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment(state) {
+      state.value++
+    },
+    decrement(state) {
+      state.value--
+    },
+    incrementByAmount(state, action: PayloadAction<number>) {
+      state.value += action.payload
+    },
+  },
+})
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export default counterSlice.reducer
+```
+
+dispatch(incrementByAmount(5));
+
+======
+
+TypeScript has ReturnType util
+
+function add(x,y) {
+    return "";
+}
+
+type MT = ReturnType<add>;
+
+MT will be string
+
+Hooks:
+useSelector() : The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+ useDispatch(): The  is approximately equivalent to the mapDispatchToProps argument to connect conceptually. 
+
+npx json-server --watch data.json --port 1234
+
+
