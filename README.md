@@ -1177,3 +1177,7 @@ npx create-react-app contactmanager
 
 contactmanager> npm i redux react-redux
 
+
+Check Redux Devtools extension
+
+Resume @ 11:35
