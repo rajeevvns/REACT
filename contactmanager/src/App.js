@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      User: {props.customer.name} <br />
     </div>
   );
 }
 
-export default App;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
+function mapStateToProps(state) {
+  return {
+    friends: state.contacts,
+    customer: state.users
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addContact: contact => dispatch({ type: 'CREATE_CONTACT', payload: contact }),
+    removeContact: (email) => dispatch({ type: 'REMOVE_CONTACT', payload: email }),
+    clearContacts: () => dispatch({ type: 'CLEAR_CONTACTS' })
+  }
+}
