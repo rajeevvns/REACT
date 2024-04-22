@@ -1281,3 +1281,57 @@ https://codesandbox.io/embed/reduxtoolkit-typescript-test-mp4zo?autoresize=1&fon
 
 https://github.com/reduxjs/redux-mock-store
 
+
+==============
+
+Day 6
+
+Recap:
+* Context as state management --> Anti-pattern
+* Redux 
+-> time travel debugging
+-> can be built as a seperate module and intergated with any JS library / framework
+-> Predicatable State managment: only actions mutate the state.  actions are dispatched from view
+-> Micro-frontend [global store shared between modules [ devloped using React / Angular / ...]]
+
+Characters:
+Store: Single store per redux application
+RootReducer: store interacts with RootReducer
+Reducers: are functions which take (state, action) => new_state
+connect(mapStateToProps, mapDispatchToProps)(App) : bridge react with redux [ react-redux]
+
+Redux Toolkit: 
+* simplifies using Redux
+-> opinated
+-> less code
+createSlice() contains actions + reducer functions
+-> immutabliity for mutation logic is built-in [immer / ImmutableJS/  AutoDux ,...]
+-> useSelector() is a hook --> mapStateToProps
+-> useDispatch() is a hook --> mapDispatchToProps
+
+==================
+
+Redux is based on Synchronous actions.
+
+view sends action --> store --> root reducer --> reducers --> update state --> root reducer --> store --> notify views about changes
+
+Async Logic and Data Fetching: --> middleware library
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+
+Middleware: Thunk / Saga / ObservableJS ,...
+
+// 
+function apiCall() {
+    // http request
+    // axios or fetch
+}
+
+dispatch(apiCall()); //thunk --> taken by middleware
+
+dispatch({type: '', payload: ...}); // --> store --> reducer
+
+==================
+
+
+
