@@ -1336,7 +1336,50 @@ dispatch({type: '', payload: ...}); // --> store --> reducer
 RTK Query: advance data fetching: caching tool, pre-fetching, Mutation logic ,...
 https://redux-toolkit.js.org/rtk-query/overview
 
-Resume @ 11:25
+Solution 1: to Refetch
+```
+export default function CustomerForm() {
+    const [addCustomer] = useAddCustomerMutation();
+    const { refetch } = useCustomersQuery();
+    const customer = {
+        "id": 6,
+        "firstName": "Greogry",
+        "lastName": "Peck"
+    }
 
+    const addHandler = async () => {
+        await addCustomer(customer);
+        refetch();
+    }
 
+``
 
+Solution 2:
+
+Auto - fetching:
+```
+export const customersApi = createApi({
+    reducerPath: 'customersApi',
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:1234/' }),
+    tagTypes: ['Customers'],
+    endpoints: (builder) => ({
+        //returns Customer[]; no PathPArameter or QueryParameter
+        customers: builder.query<Customer[], void>({
+            query: () => `/customers`,
+            providesTags: ['Customers']
+        }),
+        // http://localhost:1234/customers/3
+        customer: builder.query<Customer, number>({
+            query: (id) => `/customers/${id}`,
+        }),
+        addCustomer: builder.mutation<void, Customer>({
+            query: customer => ({
+                url: '/customers',
+                method: 'post',
+                body: customer
+            }),
+            invalidatesTags: ['Customers']
+        })
+    }),
+});
+```

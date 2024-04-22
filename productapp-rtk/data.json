@@ -1,24 +1,39 @@
 {
   "customers": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Gavin",
       "lastName": "King"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Roger",
       "lastName": "G"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "George",
       "lastName": "Fish"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Harry",
       "lastName": "Potter"
+    },
+    {
+      "id": 5,
+      "firstName": "James",
+      "lastName": "Bond"
+    },
+    {
+      "id": 6,
+      "firstName": "Greogry",
+      "lastName": "Peck"
+    },
+    {
+      "id": 7,
+      "firstName": "Lee",
+      "lastName": "Ping"
     }
   ],
   "orders": [

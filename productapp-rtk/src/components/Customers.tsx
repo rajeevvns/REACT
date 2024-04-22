@@ -1,6 +1,7 @@
 import React from 'react'
 import { useCustomerQuery, useCustomersQuery } from '../redux/api/CustomerApi';
 import { error } from 'console';
+import CustomerForm from './CustomerForm';
 
 export default function Customers() {
     const { error, isError, isFetching, isLoading, isSuccess, data } = useCustomersQuery();
@@ -12,6 +13,7 @@ export default function Customers() {
             {isError && <h1>Boom :-( </h1>}
             {isSuccess && (
                 <div>
+                    <CustomerForm />
                     {
                         data.map(customer => <h2 key={customer.id}> {customer.firstName} , {customer.lastName}</h2>)
                     }
