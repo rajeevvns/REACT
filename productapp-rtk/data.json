@@ -1,5 +1,26 @@
 {
-  "customers": [],
+  "customers": [
+    {
+      "id": 1,
+      "firstName": "Gavin",
+      "lastName": "King"
+    },
+    {
+      "id": 2,
+      "firstName": "Roger",
+      "lastName": "G"
+    },
+    {
+      "id": 3,
+      "firstName": "George",
+      "lastName": "Fish"
+    },
+    {
+      "id": 4,
+      "firstName": "Harry",
+      "lastName": "Potter"
+    }
+  ],
   "orders": [
     {
       "id": "b940",

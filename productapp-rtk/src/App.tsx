@@ -6,6 +6,7 @@ import ProductList from './components/ProductList';
 import Details from './components/Details';
 import Default from './components/Default';
 import NavbarComponent from './components/NavbarComponent';
+import Customers from './components/Customers';
 
 const CartComponent = lazy(() => import('./components/CartComponent'));
 const ProductForm = lazy(() => import('./components/ProductForm'));
@@ -16,6 +17,7 @@ function App() {
       <NavbarComponent />
       <Routes>
         <Route path="/products" element={<ProductList />} />
+        <Route path="/customers" element={<Customers />} />
         <Route path="/cart" element={
           <Suspense fallback={<h1>Cart loading...</h1>}>
             <CartComponent />

@@ -1333,5 +1333,8 @@ dispatch({type: '', payload: ...}); // --> store --> reducer
 
 ==================
 
+RTK Query: advance data fetching: caching tool, pre-fetching, Mutation logic ,...
+https://redux-toolkit.js.org/rtk-query/overview
+
 
 
