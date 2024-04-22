@@ -1486,3 +1486,12 @@ class CartStore {
 }
 
 ```
+
+Atoms , Molecules, Organisms, templates appraoch of building re-usable components
+
+Storybook:
+1) build ts or js react application
+2) npx storybook@latest init
+
+npm run storybook
+
