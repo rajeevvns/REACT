@@ -1277,3 +1277,7 @@ class ProductList extends Component {
 
 Async Redux, Mobx, ...
 
+https://codesandbox.io/embed/reduxtoolkit-typescript-test-mp4zo?autoresize=1&fontsize=14&hidenavigation=1&theme=dark&view=preview
+
+https://github.com/reduxjs/redux-mock-store
+
