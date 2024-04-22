@@ -1383,3 +1383,106 @@ export const customersApi = createApi({
     }),
 });
 ```
+
+==============
+RUSH is a monorepo ...
+OR
+https://github.com/microsoft/redux-micro-frontend
+OR
+Module Federation: for creating Microfrontend
+npx create-mf-app samplemf
+redux-microfornend.zip
+Done using:
+npx create-mf-app store [store]
+npx create-mf-app host 
+npx create-mf-app nav
+---
+
+store: npm start
+nav: npm start
+host: npm start
+
+=============================
+
+Mobx: State Management
+
+State:
+* annotated as observable
+@observable
+count:number;
+* similar to useState's state variable
+
+Action:
+* annotated as action, runInAction
+* functions that changes the observable state
+* similar to useState's setter function
+
+@action
+update() {
+    count++;
+}
+
+Derivations
+* derived from observable state   without any interaction
+* updated automatically when observable state is modified
+* similar to useEffect
+
+Example: cart "total" is derived from cart state [ observable]
+
+Uni-directional flow:
+* Actions update observable state
+* State update notifues derivations to be updated and other observers
+
+===
+remove all Context reference
+"experimentalDecorators": true, in tsconfig.json
+npm i mobx mobx-react-lite mobx-logger
+
+Approach 2 without decorators:
+```
+
+class CartStore {
+    cart: Cart[] = []
+    constructor() {
+        makeObservable(this, {
+            cart: observable,
+            addToCart: action,
+            count: computed,
+            total: computed
+        }); // make CartStore also observable
+    }
+
+    addToCart(product:Product) {
+        let item: Cart = {
+            ...product,
+            quantity: 1,
+            amount: product.price
+        }
+
+        this.cart.push(item);
+    }
+    get total() {
+        // gets triggered eact tim Observable changes
+        return this.cart.map(i => i.amount).reduce( (v1, v2) => v1 + v2);
+    }
+
+    get count() {
+        return this.cart.length;
+    }
+}
+
+const cartStore = new CartStore(); // object
+export default cartStore; // singleton
+
+```
+
+Approach 3 without decorators:
+```
+class CartStore {
+    cart: Cart[] = []
+    constructor() {
+        makeAutoObservable(this); // make CartStore also observable
+    }
+}
+
+```
