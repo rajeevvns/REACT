@@ -1495,3 +1495,21 @@ Storybook:
 
 npm run storybook
 
+=========
+
+React 18:
+
+useDefferedValue
+useTransition, startTransition
+
+function ProductList({products}) {
+    let productsData = useDefferedValue(products); // low priority 
+
+    return <div>
+        {productsData.map (...)}
+    </div>
+}
+
+========
+
+MST: MobxStateTree
